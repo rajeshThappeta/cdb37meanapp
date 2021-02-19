@@ -1,0 +1,19 @@
+<h3 class="text-end text-primary">Welcome,{{username}}</h3>
+
+<button class="btn btn-secondary float-end" (click)="userLogout()">Logout</button>
+
+<div class="row">
+    <div class="col-sm-3">
+        <ul class="nav">
+            <li class="nav-item">
+                <a routerLink="userprofile" class="nav-link">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="updateprofile" class="nav-link">Update profile</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <router-outlet></router-outlet>
+    </div>
+</div>

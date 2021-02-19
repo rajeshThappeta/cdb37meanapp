@@ -1,0 +1,78 @@
+<p class="display-6 text-secondary text-center mt-3">User registration form</p>
+
+<form class="row g-3 mt-5 bg-light p-3" #formRef="ngForm" (ngSubmit)="formRef.form.valid&&onSubmit(formRef)">
+    <!--email  -->
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" name="email" ngModel required #email="ngModel">
+        <!-- validation for email -->
+        <span class="text-danger" *ngIf="(email.touched || formRef.submitted) && email.errors?.required">
+            Email is required
+        </span>
+    </div>
+
+    <!-- password -->
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Password</label>
+        <input type="password" class="form-control" id="inputPassword4" name="password" ngModel required
+            #password="ngModel">
+        <!-- validation for password -->
+        <span class="text-danger" *ngIf="(password.touched || formRef.submitted) && password.errors?.required">
+            Password is required
+        </span>
+    </div>
+
+    <!-- username -->
+    <div class="col-12">
+        <label for="inputUsername" class="form-label">Username</label>
+        <input type="text" class="form-control" id="inputUsername" name="username" ngModel required #username="ngModel">
+        <!-- validation for username -->
+        <span class="text-danger" *ngIf="(username.touched || formRef.submitted) && username.errors?.required">
+            Username is required
+        </span>
+    </div>
+
+    <!-- address -->
+    <div class="col-12">
+        <label for="inputAddress2" class="form-label">Address </label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+            name="address" ngModel>
+    </div>
+    <!-- city -->
+    <div class="col-md-6">
+        <label for="inputCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="inputCity" name="city" ngModel required #city="ngModel">
+        <!-- validation for city -->
+        <span class="text-danger" *ngIf="(city.touched || formRef.submitted) && city.errors?.required">
+            City is required
+        </span>
+    </div>
+    <!-- state -->
+    <div class="col-md-4">
+        <label for="inputState" class="form-label">State</label>
+        <select id="inputState" class="form-select" name="state" ngModel required #state="ngModel">
+            <option selected>Choose...</option>
+            <option value="telangana">Telangana</option>
+            <option value="andhra pradesh">Andhra pradesh</option>
+            <option value="karnataka">Karnataka</option>
+            <option value="tamilnadu">Tamilnadu</option>
+        </select>
+        <!-- validation for state -->
+        <span class="text-danger" *ngIf="(state.touched || formRef.submitted) && state.city?.required">
+            State is required
+        </span>
+    </div>
+
+    <!-- zip -->
+    <div class="col-md-2">
+        <label for="inputZip" class="form-label">PINCODE</label>
+        <input type="text" class="form-control" id="inputZip" name="pincode" ngModel>
+    </div>
+    <div class="col-12">
+        <input type="file"   class="form-control" (change)="incomingfile($event)" name="photo"   
+                   accept='image/*' placeholder="Upload file" >
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</form>
